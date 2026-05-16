@@ -290,7 +290,14 @@
     </div>
     <div class="hidden md:flex gap-8">
      <a href="#services" class="nav-link text-sm text-slate-600">Services</a> <a href="#about" class="nav-link text-sm text-slate-600">About</a> <a href="#portfolio" class="nav-link text-sm text-slate-600">Portfolio</a> <a href="#contact" class="nav-link text-sm text-slate-600">Contact</a>
-    </div><button class="md:hidden text-slate-600"> <i data-lucide="menu" style="width: 24px; height: 24px;"></i> </button>
+    </div><button id="mobile-menu-toggle" class="md:hidden text-slate-600"> <i data-lucide="menu" style="width: 24px; height: 24px;"></i> </button>
+   </div>
+   <!-- Mobile Menu -->
+   <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-blue-100 px-6 py-4 space-y-3">
+    <a href="#services" class="block py-2 text-slate-600 hover:text-blue-600 transition font-medium">Services</a>
+    <a href="#about" class="block py-2 text-slate-600 hover:text-blue-600 transition font-medium">About</a>
+    <a href="#portfolio" class="block py-2 text-slate-600 hover:text-blue-600 transition font-medium">Portfolio</a>
+    <a href="#contact" class="block py-2 text-slate-600 hover:text-blue-600 transition font-medium">Contact</a>
    </div>
   </nav><!-- Hero Section -->
   <section class="gradient-hero pt-32 pb-20 px-6 min-h-full flex items-center">
@@ -755,6 +762,22 @@
   </footer>
   <script>
     lucide.createIcons();
+    
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    menuToggle.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Close menu when a link is clicked
+    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        mobileMenu.classList.add('hidden');
+      });
+    });
   </script>
  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9fc7ceceb108e34d',t:'MTc3ODkwNzUxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
