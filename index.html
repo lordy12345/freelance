@@ -1,0 +1,760 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lord Anthony Aya-ay - Remote IT, QA &amp; Web Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <style>
+    * {
+      scroll-behavior: smooth;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f0f4f8 100%);
+      background-attachment: fixed;
+      color: #1e293b;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(226, 232, 240, 0.5);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(59, 130, 246, 0.5);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(59, 130, 246, 0.7);
+    }
+
+    .gradient-hero {
+      background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 50%, #e0f2fe 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gradient-accent {
+      background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+    }
+
+    .service-card {
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(248, 250, 252, 0.5) 100%);
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+      transition: left 0.6s ease;
+      pointer-events: none;
+    }
+
+    .service-card:hover::before {
+      left: 100%;
+    }
+
+    .service-card:hover {
+      transform: translateY(-12px);
+      border-color: rgba(96, 165, 250, 0.4);
+      box-shadow: 0 30px 60px rgba(59, 130, 246, 0.08);
+    }
+
+    .portfolio-item {
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(248, 250, 252, 0.45) 100%);
+      backdrop-filter: blur(10px);
+      position: relative;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-8px);
+      border-color: rgba(96, 165, 250, 0.35);
+      box-shadow: 0 20px 50px rgba(59, 130, 246, 0.06);
+    }
+
+    .skill-badge {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, rgba(59, 130, 246, 0.04) 100%);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      transition: all 0.3s ease;
+      font-weight: 500;
+      font-size: 0.875rem;
+    }
+
+    .skill-badge:hover {
+      background: linear-gradient(135deg, rgba(96, 165, 250, 0.25) 0%, rgba(96, 165, 250, 0.12) 100%);
+      border-color: rgba(96, 165, 250, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .nav-link {
+      transition: all 0.3s ease;
+      position: relative;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #60a5fa;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link:hover {
+      color: #60a5fa;
+    }
+
+    .cta-button {
+      transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+      position: relative;
+      overflow: hidden;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .cta-button::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+      pointer-events: none;
+    }
+
+    .cta-button:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.25);
+    }
+
+    .section-title {
+      position: relative;
+      display: inline-block;
+      font-weight: 700;
+      font-size: 2rem;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #60a5fa, #3b82f6, transparent);
+      border-radius: 2px;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatIn {
+      from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .animate-fade-up {
+      animation: fadeInUp 0.7s ease-out forwards;
+      opacity: 0;
+    }
+
+    .animate-float-in {
+      animation: floatIn 0.8s ease-out forwards;
+      opacity: 0;
+    }
+
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.3s; }
+    .delay-3 { animation-delay: 0.5s; }
+    .delay-4 { animation-delay: 0.7s; }
+
+    .info-card {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(30, 58, 138, 0.04) 100%);
+      border: 1px solid rgba(59, 130, 246, 0.25);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .info-card:hover {
+      border-color: rgba(96, 165, 250, 0.4);
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, rgba(30, 58, 138, 0.06) 100%);
+      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.06);
+    }
+
+    .process-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: all 0.4s ease;
+    }
+
+    .process-step:hover {
+      transform: translateY(-8px);
+    }
+
+    .step-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 1rem;
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .process-step:hover .step-circle {
+      transform: scale(1.1);
+      box-shadow: 0 12px 30px rgba(96, 165, 250, 0.4);
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+    }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="text-slate-700">
+  <script src="/_sdk/element_sdk.js"></script><!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md border-b border-blue-100 z-50">
+   <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <div class="nav-logo">
+     Lord Anthony
+    </div>
+    <div class="hidden md:flex gap-8">
+     <a href="#services" class="nav-link text-sm text-slate-600">Services</a> <a href="#about" class="nav-link text-sm text-slate-600">About</a> <a href="#portfolio" class="nav-link text-sm text-slate-600">Portfolio</a> <a href="#contact" class="nav-link text-sm text-slate-600">Contact</a>
+    </div><button class="md:hidden text-slate-600"> <i data-lucide="menu" style="width: 24px; height: 24px;"></i> </button>
+   </div>
+  </nav><!-- Hero Section -->
+  <section class="gradient-hero pt-32 pb-20 px-6 min-h-full flex items-center">
+   <div class="max-w-6xl mx-auto w-full">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+     <div class="space-y-8">
+      <div class="space-y-4 animate-fade-up">
+       <p class="text-blue-600 font-semibold text-sm tracking-widest">REMOTE IT, QA &amp; WEB SOLUTIONS</p>
+       <h1 class="text-5xl md:text-6xl font-bold leading-tight text-slate-900">Helping Businesses Streamline Operations Remotely</h1>
+       <p class="text-lg text-slate-600 leading-relaxed font-light">Technical support, software QA testing, web development, and digital solutions tailored for modern businesses worldwide.</p>
+      </div>
+<div class="flex flex-col sm:flex-row gap-4 animate-fade-up delay-2">
+  
+  <a 
+    href="#contact"
+    class="inline-flex items-center justify-center relative z-10 bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-8 py-4 rounded-lg font-semibold text-center shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300"
+  >
+    Let's Work Together
+  </a>
+
+  <a 
+    href="#services"
+    class="inline-flex items-center justify-center relative z-10 border-2 border-blue-500 text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-lg font-semibold text-center shadow-md hover:scale-105 transition-all duration-300"
+  >
+    View Services
+  </a>
+
+</div>
+     </div>
+     <div class="relative animate-float-in delay-3">
+      <div class="w-full aspect-square bg-gradient-to-br from-blue-600/20 to-blue-900/20 rounded-2xl border border-blue-500/30 flex items-center justify-center overflow-hidden"><img src="mypic.png" alt="Profile Image" class="w-full h-full object-cover rounded-2xl">
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- About Section -->
+  <section id="about" class="py-20 px-6 bg-gradient-to-b from-white via-slate-50 to-white">
+   <h2 class="section-title text-3xl md:text-4xl font-bold mb-12 mt-8">About Me</h2>
+   <div class="grid md:grid-cols-2 gap-12">
+    <div class="space-y-6 text-slate-600 leading-relaxed font-light">
+     <p>I'm a remote IT and digital solutions specialist with hands-on experience in technical support, software testing, web design, and digital operations support. I've worked with educational institutions, healthcare offices, startups, and remote teams where I handled technical troubleshooting, data management, QA testing, documentation, and digital support tasks.</p>
+     <p>My goal is to help businesses operate more efficiently through reliable remote support, organized workflows, and modern digital solutions.</p>
+     <p>In addition to my freelance services, I also collaborate with a web development team to deliver professional website solutions for businesses, brands, and startups. Together, we create responsive, modern, and user-focused websites designed to strengthen online presence and support business growth.</p>
+     <p>I continuously improve my skills in software testing, frontend development, automation, and digital technologies to provide high-quality solutions that adapt to modern business needs.</p>
+    </div>
+    <div class="space-y-6">
+     <div class="info-card rounded-xl p-8">
+      <div class="flex items-start gap-4">
+       <i data-lucide="award" style="width: 28px; height: 28px; color: #60a5fa; flex-shrink: 0;"></i>
+       <div>
+        <h3 class="font-bold mb-2 text-slate-900">IT Graduate</h3>
+        <p class="text-sm text-slate-600 font-light">Information Technology degree with practical experience in remote support and digital solutions.</p>
+       </div>
+      </div>
+     </div>
+     <div class="info-card rounded-xl p-8">
+      <div class="flex items-start gap-4">
+       <i data-lucide="globe" style="width: 28px; height: 28px; color: #60a5fa; flex-shrink: 0;"></i>
+       <div>
+        <h3 class="font-bold mb-2 text-slate-900">Philippines-Based</h3>
+        <p class="text-sm text-slate-600 font-light">Available for remote work and collaborations worldwide with reliable communication and support.</p>
+       </div>
+      </div>
+     </div>
+     <div class="info-card rounded-xl p-8">
+      <div class="flex items-start gap-4">
+       <i data-lucide="zap" style="width: 28px; height: 28px; color: #60a5fa; flex-shrink: 0;"></i>
+       <div>
+        <h3 class="font-bold mb-2 text-slate-900">Multi-Skilled Professional</h3>
+        <p class="text-sm text-slate-600 font-light">Technical expertise spanning IT support, QA testing, web development, and digital operations.</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Services Section -->
+  <section id="services" class="py-20 px-6 bg-slate-50">
+   <div class="max-w-6xl mx-auto">
+    <h2 class="section-title text-3xl md:text-4xl font-bold mb-12">Services I Offer</h2><!-- Service 1 -->
+    <div class="mb-12 service-card rounded-xl p-8">
+     <div class="grid md:grid-cols-3 gap-8">
+      <div>
+       <h3 class="text-2xl font-bold mb-4 flex items-center gap-3 text-slate-900"><i data-lucide="monitor" style="width: 32px; height: 32px; color: #60a5fa;"></i> Remote IT Support</h3>
+       <p class="text-slate-600 font-light">Reliable technical assistance for businesses and remote teams that need efficient day-to-day operational support.</p>
+      </div>
+      <div>
+       <h4 class="font-semibold mb-4 text-blue-600">Included Services</h4>
+       <ul class="space-y-2 text-sm text-slate-600 font-light">
+        <li class="flex items-center gap-2"><i data-lucide="check" style="width: 16px; height: 16px; color: #60a5fa;"></i> Technical troubleshooting</li>
+        <li class="flex items-center gap-2"><i data-lucide="check" style="width: 16px; height: 16px; color: #60a5fa;"></i> Software installation</li>
+        <li class="flex items-center gap-2"><i data-lucide="check" style="width: 16px; height: 16px; color: #60a5fa;"></i> Device &amp; system assistance</li>
+        <li class="flex items-center gap-2"><i data-lucide="check" style="width: 16px; height: 16px; color: #60a5fa;"></i> Basic networking</li>
+        <li class="flex items-center gap-2"><i data-lucide="check" style="width: 16px; height: 16px; color: #60a5fa;"></i> System maintenance</li>
+       </ul>
+      </div>
+      <div>
+       <h4 class="font-semibold mb-4 text-blue-600">Why Choose This</h4>
+       <p class="text-sm text-slate-600 font-light">I provide dependable technical support that helps businesses maintain smooth digital operations. From troubleshooting issues to supporting workflows, I help reduce downtime and improve operational efficiency.</p>
+      </div>
+     </div>
+    </div><!-- Service 2 -->
+    <div class="mb-12 service-card rounded-xl p-8">
+     <div class="grid md:grid-cols-3 gap-8">
+      <div>
+       <h3 class="text-2xl font-bold mb-4 flex items-center gap-3 text-slate-900"><i data-lucide="bug" style="width: 32px; height: 32px; color: #60a5fa;"></i> Software QA Testing</h3>
+       <p class="text-slate-600 font-light">Manual software testing services focused on improving functionality, usability, and user experience.</p>
+      </div>
+      <div>
+       <h4 class="font-semibold mb-4 text-blue-600">Included Services</h4>
+       <ul class="space-y-2 text-sm text-slate-600 font-light">
+        <li class="flex items-center gap-2"><i data-lucide="check" style="width: 16px; height: 16px; color: #60a5fa;"></i> Manual testing</li>
+        <li class="flex items-center gap-2"><i data-lucide="check" style="width: 16px; height: 16px; color: #60a5fa;"></i> Functional testing</li>
+        <li class="flex items-center gap-2"><i data-lucide="check" style="width: 16px; height: 16px; color: #60a5fa;"></i> UI/UX testing</li>
+        <li class="flex items-center gap-2"><i data-lucide="check" style="width: 16px; height: 16px; color: #60a5fa;"></i> Bug reporting</li>
+        <li class="flex items-center gap-2"><i data-lucide="check" style="width: 16px; height: 16px; color: #60a5fa;"></i> Mobile responsiveness</li>
+       </ul>
+      </div>
+      <div>
+       <h4 class="font-semibold mb-4 text-blue-600">Why Choose This</h4>
+       <p class="text-sm text-slate-600 font-light">I assist businesses and development teams by testing applications, identifying issues, and documenting bugs clearly. My focus is on ensuring systems function reliably before deployment.</p>
+      </div>
+     </div>
+    </div><!-- Service 3 -->
+    <div class="mb-12 service-card rounded-xl p-8">
+     <div class="grid md:grid-cols-3 gap-8">
+      <div>
+       <h3 class="text-2xl font-bold mb-4 flex items-center gap-3 text-slate-900"><i data-lucide="globe" style="width: 32px; height: 32px; color: #60a5fa;"></i> Web Development</h3>
+       <p class="text-slate-600 font-light">Professional website design and frontend development delivered through collaborative solutions.</p>
+      </div>
+      <div>
+       <h4 class="font-semibold mb-4 text-blue-600">Included Services</h4>
+       <ul class="space-y-2 text-sm text-slate-600 font-light">
+        <li class="flex items-center gap-2"><i data-lucide="check" style="width: 16px; height: 16px; color: #60a5fa;"></i> Business websites</li>
+        <li class="flex items-center gap-2"><i data-lucide="check" style="width: 16px; height: 16px; color: #60a5fa;"></i> Landing pages</li>
+        <li class="flex items-center gap-2"><i data-lucide="check" style="width: 16px; height: 16px; color: #60a5fa;"></i> E-commerce sites</li>
+        <li class="flex items-center gap-2"><i data-lucide="check" style="width: 16px; height: 16px; color: #60a5fa;"></i> Responsive design</li>
+        <li class="flex items-center gap-2"><i data-lucide="check" style="width: 16px; height: 16px; color: #60a5fa;"></i> Website redesign</li>
+       </ul>
+      </div>
+      <div>
+       <h4 class="font-semibold mb-4 text-blue-600">Why Choose This</h4>
+       <p class="text-sm text-slate-600 font-light">I work with a dedicated web development team to create modern, responsive, and professional websites. We focus on building clean, user-friendly experiences that strengthen online presence and support business growth.</p>
+      </div>
+     </div>
+    </div><!-- Service 4 -->
+    <div class="mb-12 service-card rounded-xl p-8">
+     <div class="grid md:grid-cols-3 gap-8">
+      <div>
+       <h3 class="text-2xl font-bold mb-4 flex items-center gap-3 text-slate-900"><i data-lucide="database" style="width: 32px; height: 32px; color: #60a5fa;"></i> Data &amp; Operations</h3>
+       <p class="text-slate-600 font-light">Organized and detail-oriented administrative support for digital workflows and business operations.</p>
+      </div>
+      <div>
+       <h4 class="font-semibold mb-4 text-blue-600">Included Services</h4>
+       <ul class="space-y-2 text-sm text-slate-600 font-light">
+        <li class="flex items-center gap-2"><i data-lucide="check" style="width: 16px; height: 16px; color: #60a5fa;"></i> Data entry</li>
+        <li class="flex items-center gap-2"><i data-lucide="check" style="width: 16px; height: 16px; color: #60a5fa;"></i> Spreadsheet organization</li>
+        <li class="flex items-center gap-2"><i data-lucide="check" style="width: 16px; height: 16px; color: #60a5fa;"></i> Online research</li>
+        <li class="flex items-center gap-2"><i data-lucide="check" style="width: 16px; height: 16px; color: #60a5fa;"></i> File organization</li>
+        <li class="flex items-center gap-2"><i data-lucide="check" style="width: 16px; height: 16px; color: #60a5fa;"></i> Documentation</li>
+       </ul>
+      </div>
+      <div>
+       <h4 class="font-semibold mb-4 text-blue-600">Why Choose This</h4>
+       <p class="text-sm text-slate-600 font-light">I help businesses maintain accurate and organized digital operations through efficient data management. My focus is on accuracy, organization, and workflow consistency to support daily business operations.</p>
+      </div>
+     </div>
+    </div><!-- Service 5 -->
+    <div class="service-card rounded-xl p-8">
+     <div class="grid md:grid-cols-3 gap-8">
+      <div>
+       <h3 class="text-2xl font-bold mb-4 flex items-center gap-3 text-slate-900"><i data-lucide="palette" style="width: 32px; height: 32px; color: #60a5fa;"></i> Creative &amp; Social Media</h3>
+       <p class="text-slate-600 font-light">Creative digital support for businesses needing visual content and branding materials.</p>
+      </div>
+      <div>
+       <h4 class="font-semibold mb-4 text-blue-600">Included Services</h4>
+       <ul class="space-y-2 text-sm text-slate-600 font-light">
+        <li class="flex items-center gap-2"><i data-lucide="check" style="width: 16px; height: 16px; color: #60a5fa;"></i> Canva graphics</li>
+        <li class="flex items-center gap-2"><i data-lucide="check" style="width: 16px; height: 16px; color: #60a5fa;"></i> Social media visuals</li>
+        <li class="flex items-center gap-2"><i data-lucide="check" style="width: 16px; height: 16px; color: #60a5fa;"></i> Marketing materials</li>
+        <li class="flex items-center gap-2"><i data-lucide="check" style="width: 16px; height: 16px; color: #60a5fa;"></i> Brand-aligned designs</li>
+        <li class="flex items-center gap-2"><i data-lucide="check" style="width: 16px; height: 16px; color: #60a5fa;"></i> Content support</li>
+       </ul>
+      </div>
+      <div>
+       <h4 class="font-semibold mb-4 text-blue-600">Why Choose This</h4>
+       <p class="text-sm text-slate-600 font-light">I create visually engaging digital materials that help businesses improve communication, branding, and online engagement while maintaining a professional and consistent visual identity.</p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Why Work With Me -->
+  <section class="py-20 px-6 bg-gradient-to-b from-white via-slate-50 to-white">
+   <div class="max-w-6xl mx-auto">
+    <h2 class="section-title text-3xl md:text-4xl font-bold mb-12 mt-8">Why Work With Me</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+     <div class="info-card rounded-xl p-8">
+      <div class="flex items-start gap-4">
+       <i data-lucide="shield-check" style="width: 32px; height: 32px; color: #60a5fa; flex-shrink: 0;"></i>
+       <div>
+        <h3 class="text-xl font-bold mb-2 text-slate-900">Reliable Remote Support</h3>
+        <p class="text-slate-600 font-light">I understand the importance of communication, organization, and accountability in remote work environments. I provide dependable support that businesses can rely on consistently.</p>
+       </div>
+      </div>
+     </div>
+     <div class="info-card rounded-xl p-8">
+      <div class="flex items-start gap-4">
+       <i data-lucide="layers" style="width: 32px; height: 32px; color: #60a5fa; flex-shrink: 0;"></i>
+       <div>
+        <h3 class="text-xl font-bold mb-2 text-slate-900">Technical &amp; Administrative Flexibility</h3>
+        <p class="text-slate-600 font-light">My background combines IT support, software testing, digital operations, and web solutions, allowing me to support multiple areas of business needs.</p>
+       </div>
+      </div>
+     </div>
+     <div class="info-card rounded-xl p-8">
+      <div class="flex items-start gap-4">
+       <i data-lucide="users" style="width: 32px; height: 32px; color: #60a5fa; flex-shrink: 0;"></i>
+       <div>
+        <h3 class="text-xl font-bold mb-2 text-slate-900">Collaborative Web Solutions</h3>
+        <p class="text-slate-600 font-light">By working with a web development team, we can handle professional website projects efficiently while maintaining modern design and development standards.</p>
+       </div>
+      </div>
+     </div>
+     <div class="info-card rounded-xl p-8">
+      <div class="flex items-start gap-4">
+       <i data-lucide="target" style="width: 32px; height: 32px; color: #60a5fa; flex-shrink: 0;"></i>
+       <div>
+        <h3 class="text-xl font-bold mb-2 text-slate-900">Detail-Oriented Workflow</h3>
+        <p class="text-slate-600 font-light">I focus on accuracy, organization, usability, and quality across testing, documentation, technical support, and digital operations.</p>
+       </div>
+      </div>
+     </div>
+     <div class="info-card rounded-xl p-8 md:col-span-2">
+      <div class="flex items-start gap-4">
+       <i data-lucide="lightbulb" style="width: 32px; height: 32px; color: #60a5fa; flex-shrink: 0;"></i>
+       <div>
+        <h3 class="text-xl font-bold mb-2 text-slate-900">Continuous Learning</h3>
+        <p class="text-slate-600 font-light">I continuously improve my skills in software testing, automation, frontend development, and modern digital tools to provide better solutions for businesses and clients worldwide.</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Portfolio Section -->
+  <section id="portfolio" class="py-20 px-6 bg-slate-50">
+   <div class="max-w-6xl mx-auto">
+    <h2 class="section-title text-3xl md:text-4xl font-bold mb-12">Selected Projects &amp; Work</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+     <div class="portfolio-item rounded-xl p-8">
+      <div class="flex items-start gap-4 mb-4">
+       <i data-lucide="smartphone" style="width: 32px; height: 32px; color: #60a5fa; flex-shrink: 0;"></i>
+       <h3 class="text-xl font-bold text-slate-900">Boarding House Tracking System</h3>
+      </div>
+      <p class="text-slate-600 mb-4 font-light">A mobile and web-based system designed to help users locate available boarding houses in real time through a more efficient digital platform.</p>
+      <div class="flex gap-2">
+       <span class="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full">Web Development</span> <span class="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full">Full Stack</span>
+      </div>
+     </div>
+     <div class="portfolio-item rounded-xl p-8">
+      <div class="flex items-start gap-4 mb-4">
+       <i data-lucide="users" style="width: 32px; height: 32px; color: #60a5fa; flex-shrink: 0;"></i>
+       <h3 class="text-xl font-bold text-slate-900">Patient Management System</h3>
+      </div>
+      <p class="text-slate-600 mb-4 font-light">A web-based system developed to improve patient record management and operational workflows within a healthcare environment.</p>
+      <div class="flex gap-2">
+       <span class="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full">Healthcare</span> <span class="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full">Database</span>
+      </div>
+     </div>
+     <div class="portfolio-item rounded-xl p-8">
+      <div class="flex items-start gap-4 mb-4">
+       <i data-lucide="layout" style="width: 32px; height: 32px; color: #60a5fa; flex-shrink: 0;"></i>
+       <h3 class="text-xl font-bold text-slate-900">Business Websites &amp; Templates</h3>
+      </div>
+      <p class="text-slate-600 mb-4 font-light">Modern responsive website designs and frontend layouts created for startups, businesses, and portfolio presentations.</p>
+      <div class="flex gap-2">
+       <span class="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full">Web Design</span> <span class="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full">Responsive</span>
+      </div>
+     </div>
+     <div class="portfolio-item rounded-xl p-8">
+      <div class="flex items-start gap-4 mb-4">
+       <i data-lucide="bug" style="width: 32px; height: 32px; color: #60a5fa; flex-shrink: 0;"></i>
+       <h3 class="text-xl font-bold text-slate-900">QA Testing &amp; Documentation</h3>
+      </div>
+      <p class="text-slate-600 mb-4 font-light">Hands-on experience executing manual test cases, identifying bugs, and documenting software issues to improve product quality and usability.</p>
+      <div class="flex gap-2">
+       <span class="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full">QA Testing</span> <span class="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full">Documentation</span>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Skills Section -->
+  <section class="py-20 px-6 bg-gradient-to-b from-white via-blue-50 to-white">
+   <div class="max-w-6xl mx-auto">
+    <h2 class="section-title text-3xl md:text-4xl font-bold mb-12 mt-8">Technical Skills &amp; Tools</h2>
+    <div class="mb-12">
+     <h3 class="text-xl font-bold mb-6 text-slate-900">Technical Skills</h3>
+     <div class="flex flex-wrap gap-3">
+      <span class="skill-badge px-4 py-2 rounded-lg">Software Testing</span> <span class="skill-badge px-4 py-2 rounded-lg">Manual QA Testing</span> <span class="skill-badge px-4 py-2 rounded-lg">Web Design</span> <span class="skill-badge px-4 py-2 rounded-lg">Frontend Development</span> <span class="skill-badge px-4 py-2 rounded-lg">Technical Support</span> <span class="skill-badge px-4 py-2 rounded-lg">Data Management</span> <span class="skill-badge px-4 py-2 rounded-lg">Python Basics</span> <span class="skill-badge px-4 py-2 rounded-lg">SQL</span> <span class="skill-badge px-4 py-2 rounded-lg">Selenium Basics</span>
+     </div>
+    </div>
+<div class="w-full px-2 md:px-4 lg:px-6 overflow-hidden">
+
+  <h3 class="text-3xl md:text-4xl font-bold mb-10 text-slate-900 text-center">
+    Tools &amp; Platforms
+  </h3>
+
+  <!-- MARQUEE WRAPPER -->
+<div class="relative w-full overflow-hidden">
+
+  <div class="flex w-max animate-scroll gap-20 items-center">
+
+    <!-- SET 1 -->
+    <img src="microsoft.png" class="w-32 h-32 md:w-36 md:h-36 lg:w-44 lg:h-44 object-contain">
+    <img src="google.png" class="w-32 h-32 md:w-36 md:h-36 lg:w-44 lg:h-44 object-contain">
+    <img src="Trello-logo.png" class="w-32 h-32 md:w-36 md:h-36 lg:w-44 lg:h-44 object-contain">
+    <img src="canva.png" class="w-32 h-32 md:w-36 md:h-36 lg:w-44 lg:h-44 object-contain">
+    <img src="vscode.png" class="w-32 h-32 md:w-36 md:h-36 lg:w-44 lg:h-44 object-contain">
+    <img src="github.png" class="w-32 h-32 md:w-36 md:h-36 lg:w-44 lg:h-44 object-contain">
+    <img src="xampp.png" class="w-32 h-32 md:w-36 md:h-36 lg:w-44 lg:h-44 object-contain">
+
+    <!-- SET 2 (DUPLICATE FOR LOOP) -->
+    <img src="microsoft.png" class="w-32 h-32 md:w-36 md:h-36 lg:w-44 lg:h-44 object-contain">
+    <img src="google.png" class="w-32 h-32 md:w-36 md:h-36 lg:w-44 lg:h-44 object-contain">
+    <img src="Trello-logo.png" class="w-32 h-32 md:w-36 md:h-36 lg:w-44 lg:h-44 object-contain">
+    <img src="canva.png" class="w-32 h-32 md:w-36 md:h-36 lg:w-44 lg:h-44 object-contain">
+    <img src="vscode.png" class="w-32 h-32 md:w-36 md:h-36 lg:w-44 lg:h-44 object-contain">
+    <img src="github.png" class="w-32 h-32 md:w-36 md:h-36 lg:w-44 lg:h-44 object-contain">
+    <img src="xampp.png" class="w-32 h-32 md:w-36 md:h-36 lg:w-44 lg:h-44 object-contain">
+
+  </div>
+</div>
+
+<style>
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+} 
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+</style>
+    </div>
+   </div>
+  </section><!-- Certifications Section -->
+  <section class="py-20 px-6 bg-gradient-to-b from-white via-slate-50 to-white">
+   <div class="max-w-6xl mx-auto">
+    <h2 class="section-title text-3xl md:text-4xl font-bold mb-12 mt-8">Certifications &amp; Training</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+     <div class="info-card rounded-xl p-6 flex items-start gap-4">
+      <i data-lucide="badge" style="width: 28px; height: 28px; color: #60a5fa; flex-shrink: 0; margin-top: 2px;"></i>
+      <div>
+       <h3 class="font-bold text-slate-900">Professional Diploma in Software Testing &amp; QA</h3>
+       <p class="text-sm text-slate-600 mt-1 font-light">Comprehensive training in quality assurance methodologies and testing practices.</p>
+      </div>
+     </div>
+     <div class="info-card rounded-xl p-6 flex items-start gap-4">
+      <i data-lucide="badge" style="width: 28px; height: 28px; color: #60a5fa; flex-shrink: 0; margin-top: 2px;"></i>
+      <div>
+       <h3 class="font-bold text-slate-900">QA Manual Testing Training</h3>
+       <p class="text-sm text-slate-600 mt-1 font-light">Specialized training in manual testing techniques and test case development.</p>
+      </div>
+     </div>
+     <div class="info-card rounded-xl p-6 flex items-start gap-4">
+      <i data-lucide="badge" style="width: 28px; height: 28px; color: #60a5fa; flex-shrink: 0; margin-top: 2px;"></i>
+      <div>
+       <h3 class="font-bold text-slate-900">TESDA Computer Systems Servicing NC II</h3>
+       <p class="text-sm text-slate-600 mt-1 font-light">Technical certification in computer systems and IT support services.</p>
+      </div>
+     </div>
+     <div class="info-card rounded-xl p-6 flex items-start gap-4">
+      <i data-lucide="badge" style="width: 28px; height: 28px; color: #60a5fa; flex-shrink: 0; margin-top: 2px;"></i>
+      <div>
+       <h3 class="font-bold text-slate-900">TESDA Contact Center Services NC II</h3>
+       <p class="text-sm text-slate-600 mt-1 font-light">Professional certification in customer service and contact center operations.</p>
+      </div>
+     </div>
+     <div class="info-card rounded-xl p-6 flex items-start gap-4">
+      <i data-lucide="badge" style="width: 28px; height: 28px; color: #60a5fa; flex-shrink: 0; margin-top: 2px;"></i>
+      <div>
+       <h3 class="font-bold text-slate-900">Python for AI</h3>
+       <p class="text-sm text-slate-600 mt-1 font-light">Training in Python programming with focus on AI and automation applications.</p>
+      </div>
+     </div>
+     <div class="info-card rounded-xl p-6 flex items-start gap-4">
+      <i data-lucide="badge" style="width: 28px; height: 28px; color: #60a5fa; flex-shrink: 0; margin-top: 2px;"></i>
+      <div>
+       <h3 class="font-bold text-slate-900">Social Media Marketing Training</h3>
+       <p class="text-sm text-slate-600 mt-1 font-light">Comprehensive training in digital marketing and social media strategy.</p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Process Section -->
+  <section class="py-20 px-6 bg-gradient-to-b from-white via-blue-50 to-white">
+   <div class="max-w-6xl mx-auto">
+    <h2 class="section-title text-3xl md:text-4xl font-bold mb-12 mt-8">How We Work</h2>
+    <div class="grid md:grid-cols-4 gap-6">
+     <div class="process-step">
+      <div class="step-circle">
+       1
+      </div>
+      <h3 class="font-bold mb-2 text-slate-900">Discovery &amp; Planning</h3>
+      <p class="text-sm text-slate-600 font-light">Understanding business goals, project requirements, and target audience needs.</p>
+     </div>
+     <div class="process-step">
+      <div class="step-circle">
+       2
+      </div>
+      <h3 class="font-bold mb-2 text-slate-900">Design &amp; Development</h3>
+      <p class="text-sm text-slate-600 font-light">Creating modern, responsive, and user-focused digital solutions tailored to business objectives.</p>
+     </div>
+     <div class="process-step">
+      <div class="step-circle">
+       3
+      </div>
+      <h3 class="font-bold mb-2 text-slate-900">Testing &amp; Optimization</h3>
+      <p class="text-sm text-slate-600 font-light">Ensuring functionality, responsiveness, usability, and performance across platforms.</p>
+     </div>
+     <div class="process-step">
+      <div class="step-circle">
+       4
+      </div>
+      <h3 class="font-bold mb-2 text-slate-900">Launch &amp; Support</h3>
+      <p class="text-sm text-slate-600 font-light">Providing ongoing support and improvements to maintain strong digital operations.</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Contact Section -->
+  <section id="contact" class="py-20 px-6 bg-gradient-to-b from-white via-blue-50 to-white">
+   <div class="max-w-4xl mx-auto">
+    <h2 class="section-title text-3xl md:text-4xl font-bold mb-6 mt-8">Let's Work Together</h2>
+    <p class="text-lg text-slate-600 mb-12 font-light">Looking for reliable remote support, software testing, technical assistance, or professional web solutions for your business? I'm available for freelance, remote, contract-based, and collaborative projects worldwide.</p>
+    <div class="grid md:grid-cols-3 gap-8 mb-12">
+     <div class="info-card rounded-xl p-8 text-center">
+      <i data-lucide="mail" style="width: 40px; height: 40px; color: #60a5fa; margin: 0 auto 12px;"></i>
+      <h3 class="font-bold mb-2 text-slate-900">Email</h3><a href="mailto:lordanthony098@gmail.com" class="text-blue-600 hover:text-blue-700 transition">lordanthony098@gmail.com</a>
+     </div>
+     <div class="info-card rounded-xl p-8 text-center">
+      <i data-lucide="map-pin" style="width: 40px; height: 40px; color: #60a5fa; margin: 0 auto 12px;"></i>
+      <h3 class="font-bold mb-2 text-slate-900">Location</h3>
+      <p class="text-slate-600">Philippines</p>
+     </div>
+     <div class="info-card rounded-xl p-8 text-center">
+      <i data-lucide="globe" style="width: 40px; height: 40px; color: #60a5fa; margin: 0 auto 12px;"></i>
+      <h3 class="font-bold mb-2 text-slate-900">Availability</h3>
+      <p class="text-slate-600">Remote Work Worldwide</p>
+     </div>
+    </div>
+    <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl p-12 text-center">
+     <h3 class="text-2xl font-bold mb-6 text-white">Let's discuss how I can help support and grow your business remotely.</h3><a href="mailto:lordanthony098@gmail.com" class="cta-button relative z-10 inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition"> Send Me an Email </a>
+    </div>
+   </div>
+  </section><!-- Footer -->
+  <footer class="py-12 px-6 bg-white border-t border-blue-100">
+   <div class="max-w-6xl mx-auto text-center text-slate-600 font-light">
+    <p>© 2024 Lord Anthony Aya-ay. Remote IT, QA &amp; Web Solutions Specialist. All rights reserved.</p>
+   </div>
+  </footer>
+  <script>
+    lucide.createIcons();
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9fc7ceceb108e34d',t:'MTc3ODkwNzUxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
